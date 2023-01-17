@@ -14,14 +14,16 @@ export const TodoListPage: FC = () => {
 
     return <StyledTodoListPage>
         <DownloadTodoList/>
-        {todos.length && <>
-            <AddTodo lastTodoItemId={todos[todos.length - 1].id}
-                     setNewTodoValue={setNewTodoValue} newTodoValue={newTodoValue}/>
-            <div className={'todoListsWrapper'}>
-                <TodoList todos={todos} addingTodo={newTodoValue}/>
-                <TodoList todos={todos} addingTodo={newTodoValue}/>
-            </div>
-        </>
+        {todos.length
+            ? <>
+                <AddTodo lastTodoItemId={todos[todos.length - 1].id}
+                         setNewTodoValue={setNewTodoValue} newTodoValue={newTodoValue}/>
+                <div className={'todoListsWrapper'}>
+                    <TodoList todos={todos} addingTodo={newTodoValue}/>
+                    <TodoList todos={todos} addingTodo={newTodoValue}/>
+                </div>
+            </>
+            : <div>{'Please, download TODO list'}</div>
         }
     </StyledTodoListPage>
 }
