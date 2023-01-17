@@ -14,7 +14,7 @@ export const TodoListPage: FC = () => {
 
     return <StyledTodoListPage>
         <DownloadTodoList/>
-        {todos.length
+        {todos.length !== 0
             ? <>
                 <AddTodo lastTodoItemId={todos[todos.length - 1].id}
                          setNewTodoValue={setNewTodoValue} newTodoValue={newTodoValue}/>
